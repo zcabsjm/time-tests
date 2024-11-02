@@ -29,3 +29,8 @@ def test_directly_consecutive_times():
     result = compute_overlap_time(large, short) 
     expected = [('2010-01-12 12:00:00', '2010-01-12 12:00:00')]
     assert result == expected
+
+def test_start_time_after_end_time():
+    with pytest.raises(ValueError):
+        time_range("2010-01-12 12:00:00", "2010-01-12 10:00:00")
+        
