@@ -11,12 +11,12 @@ def load_test_cases():
     test_data = []
     for case in cases:
         name, values = next(iter(case.items()))
-        time_range_1 = time_range(values["time_range_1"]["start"], values["time_range_1"]["end"],
-                                  values["time_range_1"].get("interval_count"),
-                                  values["time_range_1"].get("interval_length"))
-        time_range_2 = time_range(values["time_range_2"]["start"], values["time_range_2"]["end"],
-                                  values["time_range_2"].get("interval_count"),
-                                  values["time_range_2"].get("interval_length"))
+        time_range_1 = time_range(values["time_range_1"][0], values["time_range_1"][1],
+                                  values["time_range_1"][2] if len(values["time_range_1"]) > 2 else None,
+                                  values["time_range_1"][3] if len(values["time_range_1"]) > 3 else None)
+        time_range_2 = time_range(values["time_range_2"][0], values["time_range_2"][1],
+                                  values["time_range_2"][2] if len(values["time_range_2"]) > 2 else None,
+                                  values["time_range_2"][3] if len(values["time_range_2"]) > 3 else None)
         expected = [tuple(pair) for pair in values["expected"]]
         test_data.append((time_range_1, time_range_2, expected))
     return test_data
