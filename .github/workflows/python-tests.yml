@@ -21,7 +21,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pytest
-          pip install yaml
+          pip install PyYAML
           # FIXME Is there anything else that needs to be installed?
       - name: Test with pytest
         run: |
