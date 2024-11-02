@@ -8,7 +8,7 @@ def test_generic_case():
     assert compute_overlap_time(large, short) == expected
 
 def test_no_overlap():
-    short = time_range("2010-01-12 10:00:00", "2010-01-12 12:37:00")
+    short = time_range("2010-01-12 10:00:00", "2010-01-12 12:00:00")
     large = time_range("2010-01-12 12:30:00", "2010-01-12 12:45:00", 2, 60)
     result = compute_overlap_time(large, short) 
     expected = []
